@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+
 class CategoryController extends Controller
 {
     /**
@@ -11,7 +13,8 @@ class CategoryController extends Controller
      */
     public function list()
     {
-        // echo "Yeaaaah !!";
+        //echo "YATAAAAA LIST";
+        /*
         $categoriesList = [
             1 => [
                 'id' => 1,
@@ -34,15 +37,20 @@ class CategoryController extends Controller
                 'status' => 1
             ]
         ];
-
         return response()->json($categoriesList);
+        */
+
+        $categoriesList = Category::all();
+        return response()->json($categoriesList, 200);
+        //dump($categoriesList);
 
     }
 
+
     public function item($categoryId)
     {
-        // $categoryId est un string
-        // à nous de le converir en int
+        //$categoryId est un string
+        //à nous de le convertir en int
         $categoryId = intval($categoryId);
         $categoriesList = [
             1 => [
@@ -67,15 +75,19 @@ class CategoryController extends Controller
             ]
         ];
 
+        // avant de récupérer la categorie pour l'id fourni
+        // je dois verifier que cette id existe comme clé du tableau
+
         if(array_key_exists($categoryId, $categoriesList)){
             $category = $categoriesList[$categoryId];
             return response()->json($category);
-        } else {
-            // j'affiche une 404
+        } else{
+            // J'affiche une 404
             abort(404);
         }
-    }
 
+
+    }
 
     //
 }
