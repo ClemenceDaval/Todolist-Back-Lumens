@@ -11,6 +11,7 @@
 |
 */
 
+// categories ----------------------------------------------------------------
 $router->get(
     '/',
     [
@@ -35,12 +36,20 @@ $router->get(
     ]
 );
 
-
+// tasks ----------------------------------------------------------------------
 $router->get(
     '/tasks',
     [
         'uses' => 'TaskController@list', //nomDuController@nomDeLaMethode
         'as'   => 'task-list' // nom de la route
+    ]
+);
+
+$router->get(
+    '/tasks/{id}',
+    [
+        'uses' => 'TaskController@item', //nomDuController@nomDeLaMethode
+        'as'   => 'task-item' // nom de la route
     ]
 );
 
@@ -52,13 +61,18 @@ $router->post(
     ]
 );
 
+$router->put(
+    '/tasks/{id}',
+    [
+        'uses' => 'TaskController@updatePut', //nomDuController@nomDeLaMethode
+        'as'   => 'task-updatePut' // nom de la route
+    ]
+);
 
-
-
-// $router->get(
-//     '/tasks/{id}',
-//     [
-//         'uses' => 'TaskController@item', //nomDuController@nomDeLaMethode
-//         'as'   => 'task-item' // nom de la route
-//     ]
-// );
+$router->patch(
+    '/tasks/{id}',
+    [
+        'uses' => 'TaskController@updatePatch', //nomDuController@nomDeLaMethode
+        'as'   => 'task-updatePatch' // nom de la route
+    ]
+);
