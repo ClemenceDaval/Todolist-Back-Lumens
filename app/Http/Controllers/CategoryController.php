@@ -41,7 +41,9 @@ class CategoryController extends Controller
         */
 
         $categoriesList = Category::all();
-        return response()->json($categoriesList, 200);
+        //return response()->json($categoriesList, 200);
+
+        return $this->sendJsonResponse($categoriesList, 200);
         //dump($categoriesList);
 
     }

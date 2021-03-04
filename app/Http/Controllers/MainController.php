@@ -21,27 +21,22 @@ class MainController extends Controller
 
         $category = new Category();
 
+
         // https://laravel.com/docs/6.x/eloquent#retrieving-models
+        //dump($category::all())
 
-        // dump($category::all());
-        // dump toutes les catégories
+        //dump($category::find(1)); // WHERE ID =
+        //dump($category::find([1,4]));
+        //dump($category::where('id', 4)->get());
 
-        // dump($category::find(2));
-        // dump la catégorie dont l'id est 2
+        $category->name = 'Titre pro';
+        $category->save();
 
-        // dump($category::find([1,4]));
-        // dump les catégories dont l'id est 1 et 4
+        //https://laravel.com/docs/6.x/eloquent#deleting-models
+        //$category::destroy(6);
+        //$category::destroy([4,5]);
 
-        // dump($category::where('id', 4)->get());
-        // dump la catégorie dont l'id est 4
 
-        //$category->name = 'new category YATA 2';
-        //$category->status = 2;
-        //$category->save();
-        // créé une nouvelle catégorie ayant le statut 2
-
-        // $category::destroy([5,6]);
-        // supprime les catégories dont l'id est 5 et 6
     }
 
     //
