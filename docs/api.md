@@ -1,39 +1,16 @@
-<?php
+# API endpoints
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It is a breeze. Simply tell Lumen the URIs it should respond to
-| and give it the Closure to call when that URI is requested.
-|
-*/
-
-$router->get(
-    '/',
-    [
-        'uses' => 'MainController@home', // nomdDuController@@NomDeLaMethode
-        'as'   => 'main-home' // nom de la route
-    ]
-);
-
-
-$router->get(
-    '/categories',
-    [
-        'uses' => 'CategoryController@list', // nomdDuController@@NomDeLaMethode
-        'as'   => 'category-list' // nom de la route
-    ]
-);
-
-$router->get(
-    '/categories/{id}',
-    [
-        'uses' => 'CategoryController@item', // nomdDuController@@NomDeLaMethode
-        'as'   => 'category-item' // nom de la route
-    ]
-);
-
-
+| Endpoint | HTTP request method | Data to send | Description |
+|--|--|--|--|
+| `/categories` | GET | - | Return data of all the categories |
+| `/categories` | POST | name, status | Create a new category |
+| `/categories/[id]` | GET | - | Return all data of a specific category |
+| `/categories/[id]` | PUT | name, status | Update all data of a specific category |
+| `/categories/[id]` | PATCH | name and/or status | Update partial data of a specific category |
+| `/categories/[id]` | DELETE | - | Delete a specific category |
+| `/tasks` | GET | - | Return data of all the tasks  |
+| `/tasks` | POST | title, categoryId, completion, status | Add a new task |
+| `/tasks/[id]` | GET | - | Return all data of a specific task |
+| `/tasks/[id]` | PUT | title, categoryId, completion, status | Update all data of a specific task |
+| `/tasks/[id]` | PATCH | title and/or categoryId and/or completion and/or status | Update partial data of a specific task |
+| `/tasks/[id]` | DELETE | - | Delete a specific task |
