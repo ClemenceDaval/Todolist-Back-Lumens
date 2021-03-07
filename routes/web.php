@@ -11,19 +11,19 @@
 |
 */
 
-// categories ----------------------------------------------------------------
 $router->get(
     '/',
     [
-        'uses' => 'MainController@home', //nomDuController@nomDeLaMethode
+        'uses' => 'MainController@home', // nomdDuController@@NomDeLaMethode
         'as'   => 'main-home' // nom de la route
     ]
 );
 
+
 $router->get(
     '/categories',
     [
-        'uses' => 'CategoryController@list', //nomDuController@nomDeLaMethode
+        'uses' => 'CategoryController@list', // nomdDuController@@NomDeLaMethode
         'as'   => 'category-list' // nom de la route
     ]
 );
@@ -31,48 +31,43 @@ $router->get(
 $router->get(
     '/categories/{id}',
     [
-        'uses' => 'CategoryController@item', //nomDuController@nomDeLaMethode
+        'uses' => 'CategoryController@item', // nomdDuController@NomDeLaMethode
         'as'   => 'category-item' // nom de la route
     ]
 );
 
-// tasks ----------------------------------------------------------------------
+
 $router->get(
     '/tasks',
     [
-        'uses' => 'TaskController@list', //nomDuController@nomDeLaMethode
+        'uses' => 'TaskController@list', // nomdDuController@NomDeLaMethode
         'as'   => 'task-list' // nom de la route
     ]
 );
 
-$router->get(
-    '/tasks/{id}',
-    [
-        'uses' => 'TaskController@item', //nomDuController@nomDeLaMethode
-        'as'   => 'task-item' // nom de la route
-    ]
-);
 
 $router->post(
     '/tasks',
     [
-        'uses' => 'TaskController@create', //nomDuController@nomDeLaMethode
-        'as'   => 'task-create' // nom de la route
+        'uses' => 'TaskController@add', // nomdDuController@NomDeLaMethode
+        'as'   => 'task-add' // nom de la route
     ]
 );
+
+
 
 $router->put(
     '/tasks/{id}',
     [
-        'uses' => 'TaskController@updatePut', //nomDuController@nomDeLaMethode
-        'as'   => 'task-updatePut' // nom de la route
+        'uses' => 'TaskController@update', // nomdDuController@NomDeLaMethode
+        'as'   => 'task-update' // nom de la route
     ]
 );
 
 $router->patch(
     '/tasks/{id}',
     [
-        'uses' => 'TaskController@updatePatch', //nomDuController@nomDeLaMethode
-        'as'   => 'task-updatePatch' // nom de la route
+        'uses' => 'TaskController@update', // nomdDuController@NomDeLaMethode
+        'as'   => 'task-patch' // nom de la route
     ]
 );
