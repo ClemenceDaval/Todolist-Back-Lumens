@@ -71,3 +71,11 @@ $router->patch(
         'as'   => 'task-patch' // nom de la route
     ]
 );
+
+$router->delete(
+    '/tasks/{id}',
+    [
+        'uses' => 'TaskController@delete', // nomdDuController@NomDeLaMethode
+        'as'   => 'task-delete' // nom de la route
+    ]
+);

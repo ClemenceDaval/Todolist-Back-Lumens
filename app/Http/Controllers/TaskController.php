@@ -178,4 +178,24 @@ class TaskController extends Controller
 
     }
 
+    public function delete($taskId)
+    {
+        // ici on récupérer la tache qui a pour id
+        $taskId = intval($taskId);
+        $task = Task::find($taskId);
+
+        // si j'ai bien une tache
+        if (!empty($task)) {
+            $isDeleted = $task->delete();
+            if ($isDeleted) {
+                $this->sendEmptyResponse(204);
+            } else {
+                return $this->sendEmptyResponse(500);
+            }
+        } else {
+            return $this->sendEmptyResponse(404);
+        }
+
+    }
+
 }
