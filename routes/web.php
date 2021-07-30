@@ -14,15 +14,16 @@
 $router->get(
     '/',
     [
-        'uses' => 'MainController@home', //nomDuController@nomDeLaMethode
+        'uses' => 'MainController@home', // nomdDuController@@NomDeLaMethode
         'as'   => 'main-home' // nom de la route
     ]
 );
 
+
 $router->get(
     '/categories',
     [
-        'uses' => 'CategoryController@list', //nomDuController@nomDeLaMethode
+        'uses' => 'CategoryController@list', // nomdDuController@@NomDeLaMethode
         'as'   => 'category-list' // nom de la route
     ]
 );
@@ -30,7 +31,51 @@ $router->get(
 $router->get(
     '/categories/{id}',
     [
-        'uses' => 'CategoryController@item', //nomDuController@nomDeLaMethode
+        'uses' => 'CategoryController@item', // nomdDuController@NomDeLaMethode
         'as'   => 'category-item' // nom de la route
+    ]
+);
+
+
+$router->get(
+    '/tasks',
+    [
+        'uses' => 'TaskController@list', // nomdDuController@NomDeLaMethode
+        'as'   => 'task-list' // nom de la route
+    ]
+);
+
+
+$router->post(
+    '/tasks',
+    [
+        'uses' => 'TaskController@add', // nomdDuController@NomDeLaMethode
+        'as'   => 'task-add' // nom de la route
+    ]
+);
+
+
+
+$router->put(
+    '/tasks/{id}',
+    [
+        'uses' => 'TaskController@update', // nomdDuController@NomDeLaMethode
+        'as'   => 'task-update' // nom de la route
+    ]
+);
+
+$router->patch(
+    '/tasks/{id}',
+    [
+        'uses' => 'TaskController@update', // nomdDuController@NomDeLaMethode
+        'as'   => 'task-patch' // nom de la route
+    ]
+);
+
+$router->delete(
+    '/tasks/{id}',
+    [
+        'uses' => 'TaskController@delete', // nomdDuController@NomDeLaMethode
+        'as'   => 'task-delete' // nom de la route
     ]
 );

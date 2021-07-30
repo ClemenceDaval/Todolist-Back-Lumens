@@ -1,0 +1,3 @@
+TASK: id, title, completion, status, category_id, created_ad, updated_at
+has for category, 0N CATEGORY, 11 TASK
+CATEGORY: id, name, status
